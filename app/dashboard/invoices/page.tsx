@@ -8,6 +8,14 @@ import { Suspense } from 'react';
 import { fetchInvoicesPages } from '@/app/lib/data';
 
 
+import * as React from 'react';
+import Chip from '@mui/material/Chip';
+import Autocomplete from '@mui/material/Autocomplete';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Stack from '@mui/material/Stack';
+import Link from "next/link";
+
 export default async function Page({
   searchParams,
 }: {
@@ -24,7 +32,7 @@ export default async function Page({
   return (
     <div className="w-full">
       <div className="flex w-full items-center justify-between">
-        <h1 className={`${lusitana.className} text-2xl`}>Invoices</h1>
+        <h1 className={`${lusitana.className} text-2xl`}>Invoices </h1>
       </div>
       <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
         <Search placeholder="Search invoices..." />
@@ -33,6 +41,10 @@ export default async function Page({
       <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}>
         <Table query={query} currentPage={currentPage} />
       </Suspense>
+      <Link href="/dashboard">
+      <Button variant="text">Text 1243</Button>
+      </Link>
+      
       <div className="mt-5 flex w-full justify-center">
        
         <Pagination totalPages={totalPages} />

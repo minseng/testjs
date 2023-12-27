@@ -177,18 +177,16 @@ export async function fetchInvoiceById(id: string) {
 }
 
 export async function fetchCustomers() {
-//   SELECT
-//   id,
-//   name,
-//   email,
-//   image_url
-// FROM customers
-// ORDER BY name ASC
+
   try {
     const data = await sql<CustomerField>`
-    SELECT
-    *
+      SELECT
+      id,
+      name,
+      email,
+      image_url
     FROM customers
+    ORDER BY name ASC
     
     `;
 
@@ -220,13 +218,14 @@ export async function fetchFilteredCustomers(query: string) {
 		GROUP BY customers.id, customers.name, customers.email, customers.image_url
 		ORDER BY customers.name ASC
 	  `;
-
+    
+    
     const customers = data.rows.map((customer) => ({
       ...customer,
       total_pending: formatCurrency(customer.total_pending),
       total_paid: formatCurrency(customer.total_paid),
     }));
-
+   
     return customers;
   } catch (err) {
     console.error('Database Error:', err);
