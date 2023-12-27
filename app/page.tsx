@@ -12,10 +12,15 @@ export default function Page() {
       <div className="flex h-20 shrink-0 items-end rounded-lg bg-blue-500 p-4 md:h-52">
         <AcmeLogo />
       </div>
+      <div>
+        <Link href="/dashboard">
+          <p className='text-[50px] bg-[blue] text-white inline-block py-4 px-10 m-5'>dashboard 경로이동</p>
+        </Link>
+      </div>
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg bg-gray-50 px-6 py-10 md:w-2/5 md:px-20">
           <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal`}>
-            <strong>123124142 Welcome to Acme.</strong> This is the example for the{' '}
+            <strong> Welcome to Acme.</strong> This is the example for the{' '}
             <a href="https://nextjs.org/learn/" className="text-blue-500">
               Next.js Learn Course
             </a>
